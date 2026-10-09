@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Афиша мероприятий</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html">Evently</a>
+
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="#events">Мероприятия</a>
+            <a href="#about">О проекте</a>
+        </nav>
+
+        <a href="#search" class="search-icon" aria-label="Перейти к поиску"> 
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="10.5" cy="10.5" r="6.5"></circle>
+                    <path d="M15.5 15.5 L21 21"></path>
+                </svg>
+
+        </a>
+
+    </header>
+
+    <main>
+        
+        <section class="hero">
+
+        <h1>Афиша мероприятий</h1>
+
+        <p>
+            Находите интересные мероприятия и планируйте свой досуг в одном месте.
+        </p>
+
+        </section>
+
+        <section class="search">
+            <h2>Найти мероприятие</h2>
+            <form>
+
+                <div>
+                    <label for="location">Место</label>
+                    <input type="text" id="location" name="location">
+                </div>
+
+                <div>
+                    <label for="type">Тип мероприятия</label>
+                    <select id="type" name="type">
+                        <option value="all">Все мероприятия</option>
+                        <option value="concert">Концерт</option>
+                        <option value="cinema">Кино</option>
+                        <option value="exhibition">Выставка</option>
+                        <option value="lecture">Лекция</option>
+                        <option value="festival">Фестиваль</option>
+                        <option value="theatre">Театр</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="date">Дата мероприятия</label>
+                    <input type="date" id="date" name="date">
+                </div>
+
+                <button type="submit">Найти</button>
+
+            </form>
+        </section>
+
+        <section id="events">
+
+            <h2>Ближайшие мероприятия</h2>
+
+            <div>
+                <article>
+                    
+                    <img src="assets/images/concert.jpg" alt="Музыканты выступают на сцене">
+
+                    <h3>Вечер живой музыки</h3>
+                    <p>Дата: 25 сентября</p>
+                    <p>Место: Концертный зал</p>
+                    <p>Тип: Концерт</p>
+
+                    <p>
+                        Вечер с живой музыкой и выступлениями местных исполнителей.
+                    </p>
+
+                </article>
+
+                <article>
+
+                    <img src="assets/images/film.jpg" alt="Кинотеатр в парке">
+
+                    <h3>Кинопоказ под открытым небом</h3>
+                    <p>Дата: 27 сентября</p>
+                    <p>Место: Городской парк</p>
+                    <p>Тип: Кино</p>
+
+                    <p>
+                        Вечерний показ фильма на открытом воздухе
+                    </p>
+
+                </article>
+
+                <article>
+                    <img src="assets/images/art.jpg" alt="Выставка">
+
+                    <h3>Выставка современного искусства</h3>
+                    <p>Дата: 29 сентября</p>
+                    <p>Место: Галерея «Арт-пространство»</p>
+                    <p>Тип: Выставка</p>
+
+                    <p>
+                        Работы молодых художников и авторов
+                    </p>
+
+                </article>
+
+                <article>
+
+                    <img src="assets/images/cosmos.jpg" alt="Лекция">
+
+                    <h3>Лекция о космосе</h3>
+                    <p>Дата: 30 сентября</p>
+                    <p>Место: Научный центр</p>
+                    <p>Тип: Лекция</p>
+
+                    <p>
+                        Популярная лекция о современных исследованиях космоса
+                    </p>
+
+                </article>
+
+                <article>
+
+                    <img src="assets/images/fest.jpg" alt="Фестиваль">
+
+                    <h3>Городской фестиваль</h3>
+                    <p>Дата: 4 октября</p>
+                    <p>Место: Центральная площадь</p>
+                    <p>Тип: Фестиваль</p>
+
+                    <p>
+                        Музыка, еда, мастер-классы и развлечения
+                    </p>
+
+                </article>
+
+                <article>
+
+                    <img src="assets/images/theater.jpg" alt="Театр">
+
+                    <h3>Театральная постановка</h3>
+                    <p>Дата: 7 октября</p>
+                    <p>Место: Драматический театр</p>
+                    <p>Тип: Театр</p>
+
+                    <p>
+                        Вечерняя постановка по мотивам современной пьесы
+                    </p>
+
+                </article>
+            </div>
+
+
+        </section>
+
+        <section id="about">
+            <h2>Как выбрать мероприятие?</h2>
+
+            <p>
+                        Используйте фильтр по месту и типу мероприятия,
+                        чтобы быстрее найти подходящее событие.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Evently</p>
+
+        <p>
+            Проект создан в рамках учебной работы
+        </p>
+    </footer>
+
+</body>
+</html>
