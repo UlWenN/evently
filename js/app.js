@@ -1,7 +1,7 @@
 const events = [
     {
         name: "Вечер живой музыки",
-        date: "25 сентября",
+        date: "2026-10-25",
         location: "Концертный зал",
         city: "Уфа",
         category: "Концерт",
@@ -12,7 +12,7 @@ const events = [
 
     {
         name: "Кинопоказ под открытым небом",
-        date: "27 сентября",
+        date: "2026-10-27",
         location: "Городской парк",
         city: "Уфа",
         category: "Кино",
@@ -23,7 +23,7 @@ const events = [
 
     {
         name: "Выставка современного искусства",
-        date: "29 сентября",
+        date: "2026-10-30",
         location: "Галерея «Арт-пространство»",
         city: "Москва",
         category: "Выставка",
@@ -34,7 +34,7 @@ const events = [
 
     {
         name: "Лекция о космосе",
-        date: "30 сентября",
+        date: "2026-11-05",
         location: "Научный центр",
         city: "Казань",
         category: "Лекция",
@@ -45,7 +45,7 @@ const events = [
 
     {
         name: "Городской фестиваль",
-        date: "4 октября",
+        date: "2026-11-10",
         location: "Центральная площадь",
         city: "Москва",
         category: "Фестиваль",
@@ -56,7 +56,7 @@ const events = [
 
     {
         name: "Театральная постановка",
-        date: "7 октября",
+        date: "2026-11-07",
         location: "Драматический театр",
         city: "Уфа",
         category: "Театр",
@@ -67,7 +67,33 @@ const events = [
 ];
 
 
-function renderEvents() {
+const formSearch = document.querySelector(".search form");
+
+formSearch.addEventListener("submit", function(event) {
+    event.preventDefault();
+});
+
+
+
+const locationInput = document.querySelector("#location");
+const categorySelect = document.querySelector("#type");
+const dateInput = document.querySelector("#date");
+
+formSearch.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const eventsFiltered = events.filter(function(event) {
+        
+    return (locationInput.value === "" || event.location.toLowerCase().includes( locationInput.value.toLowerCase()) || event.city.toLowerCase().includes( locationInput.value.toLowerCase())) && (categorySelect.value === "all" || event.category.toLowerCase().includes(categorySelect.value.toLowerCase())) && ( dateInput.value === "" || event.date.includes(dateInput.value));
+    });
+    renderEvents(eventsFiltered);
+});
+
+
+
+
+
+
+function renderEvents(events) {
     const container = document.querySelector("#events div");
     container.textContent = "";
     events.forEach(function(event) {
@@ -81,21 +107,20 @@ function renderEvents() {
         name.textContent = event.name;
         card.append(name);
         const date = document.createElement("p");
-        date.textContent = event.date;
+        date.textContent = "📅" + event.date;
         card.append(date);
         const location = document.createElement("p");
-        location.textContent = event.location;
+        location.textContent = "📍" + event.location + ", " + event.city;
         card.append(location);
-        const city = document.createElement("p");
-        city.textContent = event.city;
-        card.append(city);
         const category = document.createElement("p");
-        category.textContent = event.category;
+        category.textContent = "🎭" + event.category;
         card.append(category);
         const description = document.createElement("p");
         description.textContent = event.description;
         card.append(description);
     });
+
+    
 };
 
 renderEvents(events);
