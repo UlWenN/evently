@@ -15,16 +15,17 @@
             <a href="index.html">Главная</a>
             <a href="#events">Мероприятия</a>
             <a href="#about">О проекте</a>
+            <button type="button" class="saggest-event">Предложить мероприятие</button>
         </nav>
 
-        <a href="#search" class="search-icon" aria-label="Перейти к поиску"> 
+        <button type="button" class="search-icon"> 
 
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="10.5" cy="10.5" r="6.5"></circle>
                     <path d="M15.5 15.5 L21 21"></path>
                 </svg>
 
-        </a>
+            </button>
 
     </header>
 
@@ -52,7 +53,7 @@
                 <div>
                     <label for="type">Тип мероприятия</label>
                     <select id="type" name="type">
-                        <option value="all">Все мероприятия</option>
+                        <option value="all">Все категории</option>
                         <option value="Концерт">Концерт</option>
                         <option value="Кино">Кино</option>
                         <option value="Выставка">Выставка</option>
@@ -69,17 +70,52 @@
 
                 <button type="submit">Найти</button>
 
+                <button class="reset-button" type="reset">↻ Сбросить</button>
+
             </form>
+            
         </section>
 
         <section id="events">
 
-            <h2>Ближайшие мероприятия</h2>
+            <div class="events-header">
 
-            <div>
+                <h2>Мероприятия</h2>
+
+                <div class="sort-container">
+
+                    <button type="button" class="sort-button">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M8 19V5 M4 9L8 5L12 9 M16 5V19 M12 15L16 19L20 15"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <select name="sort" id="sort">
+                        <option value="default">Без сортировки</option>
+                        <option value="data-asc">↑ По дате</option>
+                        <option value="data-desc">↓ По дате</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="events-list">
+
             </div>
 
 
+        </section>
+
+        <section class="moderation-panel" id="moderation-panel">
+            <h2>Модерация мероприятий</h2>
+
+
+            <div class="pending-events-list"></div>
         </section>
 
         <section id="about">
@@ -99,8 +135,87 @@
         <p>
             Проект создан в рамках учебной работы
         </p>
+
+        <button type="button" id="admin-toggle">А:выкл</button>
     </footer>
 
     <script src="js/app.js" defer></script>
+
+    <section class="search-modal">
+        <div class="search-overlay"></div>
+        <form class="search-form">
+    
+            <div class="search-input-container">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="10.5" cy="10.5" r="6.5"></circle>
+                        <path d="M15.5 15.5 L21 21"></path>
+                </svg>
+
+                <input type="text" id="search-input" name="query"> 
+                <button class="search-close" type="button">×</button>
+
+            </div>
+            
+
+            <div class="form-result"></div>
+
+        </form>
+    </section>
+
+    
+    <section class="modal-event">
+
+        <div class="overlay-event"></div>
+
+            <div class="modal-content">
+
+                <div class="con-sug">
+                    <h2>Предложить мероприятие</h2>
+                    <button class="modal-close" type="button">×</button>
+                </div>
+        
+
+                <form action="" novalidate>
+                    <label for="event-name">Название мероприятия</label>
+                    <input type="text" id="event-name"  name="eventName" required minlength="3">
+                    <p class="name-error"></p>
+                    <label for="event-date">Дата проведения</label>
+                    <input type="date" id="event-date" name="eventDate" required>
+                    <p class="date-error"></p>
+                    <label for="event-location">Место проведения</label>
+                    <input type="text" id="event-location" name="eventLocation" required>
+                    <p class="location-error"></p>
+                    <label for="event-city">Город</label>
+                    <input type="text" id="event-city" name="eventCity" required>
+                    <p class="city-error"></p>
+                    <label for="event-category">Категория мероприятия</label>
+                    <select name="eventCategory" id="event-category" required>
+                        <option value=""></option>
+                        <option value="Концерт">Концерт</option>
+                        <option value="Кино">Кино</option>
+                        <option value="Выставка">Выставка</option>
+                        <option value="Лекция">Лекция</option>
+                        <option value="Фестиваль">Фестиваль</option>
+                        <option value="Театр">Театр</option>
+                    </select>
+                    <p class="category-error"></p>
+                    <label for="event-description">Описание мероприятия</label>
+                    <textarea name="eventDescription" id="event-description" required minlength="10" maxlength="500"></textarea>
+                    <p class="description-error"></p>
+
+                    <div class="event-buttons">
+                        <button class="submit-event" type="submit">Отправить</button>
+                        <button class="cancel-event" type="button">Отмена</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+    </section>
+    
+    
 </body>
 </html>
